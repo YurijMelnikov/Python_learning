@@ -43,7 +43,9 @@ def max_sequence(random_list: list) -> list:
         for i in range(len(result)):
             if max < len(result[i]):
                 max = len(result[i])
-    except: print("В списке нет сплошных возрастающих последовательностей")
+    except: 
+        print("В списке нет сплошных возрастающих последовательностей")
+        return None
     final_result = list()
     # Второй цикл нужен, для записи итогового результата в список списков, если есть одинаковые по длине последовательности, они не будут упущены
     for i in range(len(result)):
