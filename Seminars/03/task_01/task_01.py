@@ -41,7 +41,7 @@ def unique_count (random_list:list) -> int:
         i+=1
     print (random_list)    
     return unique_counter
-  
+
 
 
 len_list = input_validation_int("Введите количество элементов списка: ")   

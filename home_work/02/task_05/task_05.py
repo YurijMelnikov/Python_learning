@@ -10,6 +10,29 @@
 
 [1, 5, 3, 4, 1, 7, 8 , 15 , 1 ] => [3, 5] так как здесь есть числа от 3 до 5 и эта последовательность длиннее чем от 7 до 8
 """
+from decimal import Decimal
+
+
+def input_validation_int(invitation_text: str) -> int:
+    variable = None
+    while variable == None:
+        value = input(invitation_text)
+        try:
+            buff = Decimal(value)
+            if buff == int(buff):
+                variable = int(buff)
+                return variable
+            else:
+                raise
+        except:
+            print("Вы ввели не целое число, повторите ввод")
+
+
+def filling_list(count_list: int) -> list:
+    result_list = list()
+    for i in range(count_list):
+        result_list.append(10000-i)
+    return result_list
 
 
 # Идея состоит в том, чтобы составить список списков всех возможных непрерывно возрастающих последовательностей и найти
@@ -43,7 +66,7 @@ def max_sequence(random_list: list) -> list:
         for i in range(len(result)):
             if max < len(result[i]):
                 max = len(result[i])
-    except: 
+    except:
         print("В списке нет сплошных возрастающих последовательностей")
         return None
     final_result = list()
@@ -55,23 +78,30 @@ def max_sequence(random_list: list) -> list:
     return final_result
 
 
-int_list = [1, 5, 3, 4, 1, 7, 8, 15, 13, 14]
-print(int_list)
-print(
-    f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
-int_list = [1, 5, 2, 3, 4, 6, 1, 7]
-print(int_list)
-print(
-    f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
-int_list = [1, 5, 3, 4, 1, 7, 8, 15, 1]
-print(int_list)
-print(
-    f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
-int_list = [1, 2, 3, 5, 6, 7, 9, 10, 11, 13, 14, 15]
-print(int_list)
-print(
-    f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
-int_list = [1, 3, 5, 7, 9, 11, 13]
-print(int_list)
-print(
-    f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
+# int_list = [1, 5, 3, 4, 1, 7, 8, 15, 13, 14]
+# print(int_list)
+# print(
+#     f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
+# int_list = [1, 5, 2, 3, 4, 6, 1, 7]
+# print(int_list)
+# print(
+#     f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
+# int_list = [1, 5, 3, 4, 1, 7, 8, 15, 1]
+# print(int_list)
+# print(
+#     f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
+# int_list = [1, 2, 3, 5, 6, 7, 9, 10, 11, 13, 14, 15]
+# print(int_list)
+# print(
+#     f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
+# int_list = [1, 3, 5, 7, 9, 11, 13]
+# print(int_list)
+# print(
+#     f"Максимальная(ые) сплошная(ые) возрастающая(ие) последовательность(и) -> {max_sequence(int_list)}")
+
+
+lenght = input_validation_int("Введите количество элементов списка: ")
+list_r = list()
+list_r = filling_list(lenght)
+result = max_sequence(list_r)
+print(list_r)
